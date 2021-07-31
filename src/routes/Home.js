@@ -7,7 +7,7 @@ const Home = ({ userObj }) => {
   // console.log(userObj);
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
   useEffect(() => {
     dbService.collection("nweets").onSnapshot((snapshot) => {
       const nweetArray = snapshot.docs.map((doc) => ({
@@ -38,10 +38,14 @@ const Home = ({ userObj }) => {
     setAttachment("");
   };
   const onChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setNweet(value);
+    // const {
+    //   target: { value },
+    // } = event;
+
+    var val = event.target.value;
+    setNweet(val);
+    console.log(val);
+    // setNweet(value);
   };
 
   const onFileChange = (event) => {
