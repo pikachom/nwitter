@@ -55,8 +55,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
           )}
           {isOwner && (
             <>
-              <button onClick={onDeleteClick}>Delete Nweet</button>
-              <button onClick={toggleEditing}>Edit Nweet</button>
+              <button onClick={onDeleteClick}>Delete Tweet</button>
+              <button onClick={toggleEditing}>Edit Tweet</button>
             </>
           )}
         </>

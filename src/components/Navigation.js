@@ -10,6 +10,9 @@ const Navigation = ({ userObj }) => (
       <li>
         <Link to={"/profile"}>{userObj.displayName}의 Profile</Link>
       </li>
+      <li>
+        <Link to={"/myTweets"}>My Tweets</Link>
+      </li>
     </ul>
   </nav>
 );

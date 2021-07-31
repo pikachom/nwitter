@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { authService, firebaseInstance } from "fbase";
 import AuthForm from "components/AuthForm";
 
@@ -13,8 +13,8 @@ const Auth = () => {
     } else if (name === "github") {
       provider = new firebaseInstance.auth.GithubAuthProvider();
     }
+    // eslint-disable-next-line no-unused-vars
     const data = await authService.signInWithPopup(provider);
-    // console.log(data);
   };
   return (
     <div>

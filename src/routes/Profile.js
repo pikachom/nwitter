@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { authService, dbService } from "fbase";
+import React, { useState } from "react";
+import { authService } from "fbase";
 import { useHistory } from "react-router-dom";
 
-export default ({ refreshUser, userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const onLogOutClick = () => {
@@ -25,17 +25,6 @@ export default ({ refreshUser, userObj }) => {
     setNewDisplayName(value);
   };
 
-  const getMyNweets = async () => {
-    const nweets = await dbService
-      .collection("nweets")
-      .where("creatorId", "==", userObj.uid)
-      .orderBy("createdAt", "desc")
-      .get();
-    console.log(nweets.docs.map((doc) => doc.data()));
-  };
-  useEffect(() => {
-    getMyNweets();
-  }, []);
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -51,3 +40,5 @@ export default ({ refreshUser, userObj }) => {
     </>
   );
 };
+
+export default Profile;
