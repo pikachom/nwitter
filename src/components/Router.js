@@ -5,8 +5,13 @@ import Home from "routes/Home";
 import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
 import MyTweets from "../routes/MyTweets";
+import { storageService } from "../fbase";
+import { v4 as uuidv4 } from "uuid";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
+  // const cheeseObj = storageService.ref().child(`smilecheese.jpeg`);
+  // const cheeseUrl = cheeseObj.getDownloadURL();
+
   return (
     <Router>
       {isLoggedIn && <Navigation userObj={userObj} />}

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Img from "smilecheese.jpeg";
 
-const Navigation = ({ userObj }) => (
+const Navigation = ({ userObj, cheeseObj }) => (
   <nav>
     <ul>
       <li>
@@ -14,6 +15,7 @@ const Navigation = ({ userObj }) => (
         <Link to={"/myTweets"}>My Tweets</Link>
       </li>
     </ul>
+    <img src={Img} width="190px" height="340px" />
   </nav>
 );
 
