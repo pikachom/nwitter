@@ -22,7 +22,12 @@ const NweetFactory = ({ userObj }) => {
       creatorId: userObj.uid,
       attachmentUrl,
     };
-    await dbService.collection("nweets").add(nweetObj);
+    if (nweetObj.text !== "") {
+      await dbService.collection("nweets").add(nweetObj);
+    } else {
+      const err = window.alert("빈 트윗은 못 올려요");
+    }
+
     setNweet("");
     setAttachment("");
   };
